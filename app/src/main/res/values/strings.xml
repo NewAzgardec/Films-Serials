@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Films &amp; Serials app</string>
+    <string name="tab_films">FILMS</string>
+    <string name="tab_serials">SERIALS</string>
+    <string name="film_or_serial_title">title</string>
+    <string name="button_add">Add</string>
+    <string name="delete">delete</string>
+    <string name="saw">saw</string>
+</resources>
