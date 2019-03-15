@@ -12,8 +12,6 @@
         android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:labelFor="@id/editText"
-        android:inputType="textCapCharacters"
         android:gravity="center"
         android:layout_marginBottom="16dp"
         android:hint="@string/film_or_serial_title" />
@@ -22,6 +20,7 @@
     android:layout_height="wrap_content">
     <Button
         android:id="@+id/button_add"
+        android:clickable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_add"
@@ -31,6 +30,7 @@
 
     <Button
         android:id="@+id/button_toast_delete"
+        android:clickable="true"
         android:layout_width="47dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
