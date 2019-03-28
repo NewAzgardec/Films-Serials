@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,49 +8,81 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginBottom="16dp"
+        android:layout_margin="8dp"
+        android:textSize="24sp"
         android:hint="@string/film_or_serial_title" />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <Button
-        android:id="@+id/button_add"
-        android:clickable="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_add"
-        android:background="@color/colorPrimary"
-        android:layout_weight="6"
-        android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/button_toast_delete"
-        android:clickable="true"
-        android:layout_width="47dp"
+        <Button
+            android:id="@+id/button_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_add"
+            android:clickable="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/button_add"
+            android:textAllCaps="false" />
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/delete"
-        android:background="@color/colorPrimaryDark"
-        android:textAllCaps="false" />
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button_toast_saw"
-        android:layout_width="41dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/saw"
-        android:background="@color/colorPrimaryDark"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/save_list"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/other_buttons"
+            android:clickable="true"
+            android:text="save"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/load_list"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/other_buttons"
+            android:clickable="true"
+            android:text="load"
+            android:textAllCaps="false"/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/button_toast_saw"
+            android:layout_width="41dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/other_buttons"
+            android:clickable="true"
+            android:text="@string/saw"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/button_toast_delete"
+            android:layout_width="47dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/other_buttons"
+            android:clickable="true"
+            android:text="@string/delete"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/list_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/view_items"></ListView>
 
 </LinearLayout>
