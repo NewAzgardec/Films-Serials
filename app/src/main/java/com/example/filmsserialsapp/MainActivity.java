@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView addStrikeThrough = (TextView) view;
                 if ((addStrikeThrough.getPaintFlags() & Paint.STRIKE_THRU_TEXT_FLAG) == Paint.STRIKE_THRU_TEXT_FLAG) {
+                    addStrikeThrough.setPaintFlags(0);
                     adapter.remove(adapter.getItem(position));
                     adapter.notifyDataSetChanged();
                     Toast.makeText(MainActivity.this, "Deleted", Toast.LENGTH_LONG).show();
