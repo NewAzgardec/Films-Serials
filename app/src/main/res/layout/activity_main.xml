@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button_add"
             android:clickable="true"
+            android:focusable="true"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
@@ -41,7 +42,8 @@
             android:layout_marginRight="8dp"
             android:background="@drawable/other_buttons"
             android:clickable="true"
-            android:text="save"
+            android:focusable="true"
+            android:text="@string/save"
             android:textAllCaps="false"/>
         <Button
             android:id="@+id/load_list"
@@ -50,7 +52,8 @@
             android:layout_weight="1"
             android:background="@drawable/other_buttons"
             android:clickable="true"
-            android:text="load"
+            android:focusable="true"
+            android:text="@string/load"
             android:textAllCaps="false"/>
 
         <Button
@@ -61,6 +64,7 @@
             android:layout_marginLeft="8dp"
             android:background="@drawable/other_buttons"
             android:clickable="true"
+            android:focusable="true"
             android:text="@string/saw"
             android:textAllCaps="false" />
 
@@ -73,6 +77,7 @@
             android:layout_weight="1"
             android:background="@drawable/other_buttons"
             android:clickable="true"
+            android:focusable="true"
             android:text="@string/delete"
             android:textAllCaps="false" />
 
@@ -81,8 +86,10 @@
     <ListView
         android:id="@+id/list_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="@drawable/view_items"></ListView>
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/view_items"/>
 
 </LinearLayout>

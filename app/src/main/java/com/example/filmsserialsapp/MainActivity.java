@@ -3,6 +3,7 @@ package com.example.filmsserialsapp;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,9 +34,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> listItems;
     ArrayAdapter<String> adapter;
     static final String LOG_TAG = "myLogs";
-
     static final String FILENAME = "file";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +49,12 @@ public class MainActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listItems.add(editText.getText().toString());
-                adapter.notifyDataSetChanged();
+                if (!TextUtils.isEmpty((editText.getText().toString().trim()))) {
+                    listItems.add(editText.getText().toString());
+                    adapter.notifyDataSetChanged();
+                } else {
+                    Toast.makeText(MainActivity.this, "Null!", Toast.LENGTH_LONG).show();
+                }
             }
         });
         deleteButton.setOnClickListener(new View.OnClickListener() {
@@ -83,24 +86,39 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-         loadButton.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 try {
-                     BufferedReader br = new BufferedReader(new InputStreamReader(
-                             openFileInput(FILENAME)));
-                     String str = "";
-                     while ((str = br.readLine()) != null) {
-                         Log.d(LOG_TAG, str);
-                     }
-                 } catch (FileNotFoundException e) {
-                     e.printStackTrace();
-                 } catch (IOException e) {
-                     e.printStackTrace();
-                 }
-             }
-         });
+        loadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    BufferedReader br = new BufferedReader(new InputStreamReader(
+                            openFileInput(FILENAME)));
+                    String str = "";
+                    while ((str = br.readLine()) != null) {
+                        Log.d(LOG_TAG, str);
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView addstrikethrough = (TextView) view;
+                if ((addstrikethrough.getPaintFlags() & Paint.STRIKE_THRU_TEXT_FLAG) == 0) {
+                    addstrikethrough.setPaintFlags(addstrikethrough.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+                } else {
+                    addstrikethrough.setPaintFlags(0);
+
+                }
+
+            }
+
+        });
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -110,21 +128,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView addstrikethrough = (TextView) view;
-                if ((addstrikethrough.getPaintFlags() & Paint.STRIKE_THRU_TEXT_FLAG) == 0) {
-                    addstrikethrough.setPaintFlags(addstrikethrough.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                } else {
-                    addstrikethrough.setPaintFlags(0);
-
-                }
-            }
-        });
-
     }
-    public void getId(){
+
+    public void getId() {
         editText = findViewById(R.id.editText);
         addButton = findViewById(R.id.button_add);
         deleteButton = findViewById(R.id.button_toast_delete);
