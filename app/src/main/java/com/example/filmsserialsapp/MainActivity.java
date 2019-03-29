@@ -107,12 +107,12 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView addstrikethrough = (TextView) view;
-                if ((addstrikethrough.getPaintFlags() & Paint.STRIKE_THRU_TEXT_FLAG) == 0) {
-                    addstrikethrough.setPaintFlags(addstrikethrough.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                TextView addStrikeThrough = (TextView) view;
+                if ((addStrikeThrough.getPaintFlags() & Paint.STRIKE_THRU_TEXT_FLAG) == 0) {
+                    addStrikeThrough.setPaintFlags(addStrikeThrough.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
                 } else {
-                    addstrikethrough.setPaintFlags(0);
+                    addStrikeThrough.setPaintFlags(0);
 
                 }
 
@@ -122,9 +122,12 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                adapter.remove(adapter.getItem(position));
-                adapter.notifyDataSetChanged();
-                Toast.makeText(MainActivity.this, "Deleted", Toast.LENGTH_LONG).show();
+                TextView addStrikeThrough = (TextView) view;
+                if ((addStrikeThrough.getPaintFlags() & Paint.STRIKE_THRU_TEXT_FLAG) == Paint.STRIKE_THRU_TEXT_FLAG) {
+                    adapter.remove(adapter.getItem(position));
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(MainActivity.this, "Deleted", Toast.LENGTH_LONG).show();
+                }
                 return true;
             }
         });
