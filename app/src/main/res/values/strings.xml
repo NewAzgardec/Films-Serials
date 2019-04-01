@@ -5,7 +5,6 @@
     <string name="film_or_serial_title">title</string>
     <string name="button_add">Add</string>
     <string name="delete">delete</string>
-    <string name="saw">saw</string>
-    <string name="save">save</string>
-    <string name="load">load</string>
+    <string name="saw">cross out</string>
+    <string name="load">show</string>
 </resources>
