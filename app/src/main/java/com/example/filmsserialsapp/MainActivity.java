@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     Button addButton;
     Button deleteButton;
     Button sawButton;
-    Button loadButton;
     ListView listView;
     ArrayList<String> listItems;
     ArrayAdapter<String> adapter;
@@ -35,11 +34,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getId();
 
-        listItems = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listItems);
-        listView.setAdapter(adapter);
+        getId();
+        listMethod();
+        readFilms();
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,21 +54,13 @@ public class MainActivity extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Long Click", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Long Click", Toast.LENGTH_SHORT).show();
             }
         });
         sawButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Click", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        loadButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                readFilms();
-                v.setClickable(false);
+                Toast.makeText(MainActivity.this, "Click", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -96,11 +86,17 @@ public class MainActivity extends AppCompatActivity {
                     addStrikeThrough.setPaintFlags(0);
                     adapter.remove(adapter.getItem(position));
                     adapter.notifyDataSetChanged();
-                    Toast.makeText(MainActivity.this, "Deleted", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
                 }
                 return true;
             }
         });
+    }
+
+    private void listMethod() {
+        listItems = new ArrayList<>();
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listItems);
+        listView.setAdapter(adapter);
     }
 
     public void writeFilms() {
@@ -131,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
         deleteButton = findViewById(R.id.button_toast_delete);
         sawButton = findViewById(R.id.button_toast_saw);
         listView = findViewById(R.id.list_view);
-        loadButton = findViewById(R.id.load_list);
     }
 
     @Override
